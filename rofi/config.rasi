@@ -1,0 +1,108 @@
+// vim: fdm=marker
+
+configuration {
+  modes: "window,drun,run,ssh";
+  font: "JetBrainsMono NF 18";
+  drun-display-format: "{name}";
+}
+
+* {
+  bg: #1e1e1e;
+  bgt: #1e1e1eE6;
+  t: transparent;
+
+  fg: #aaaaaa;
+  accent: #ffffff;
+
+  selected-bg: #aaaaaa;
+  selected-fg: #1e1e1e;
+}
+
+window {
+  width: 520px;
+  height: 360px;
+  location: center;
+  transparency: "real";
+  background-color: @bgt;
+  border: 2px;
+  border-color: @accent;
+  border-radius: 0px;
+  padding: 18px;
+}
+
+listview {
+  border: 0;
+  padding: 12px 0px 0px 0px;
+  scrollbar: true;
+  lines: 7;
+}
+
+scrollbar {
+  width: 4px;
+  border: 0;
+  handle-color: @accent;
+  handle-width: 8px;
+  padding: 0 5px;
+}
+
+entry {
+  placeholder: "";
+}
+
+textbox {
+  text-color: @fg;
+}
+
+element {
+  border: 0;
+  padding: 4px 8px;
+}
+
+element normal,
+element alternate,
+element active,
+element urgent,
+element normal normal,
+element normal urgent,
+element normal active,
+element alternate normal,
+element alternate urgent,
+element alternate active {
+  background-color: @t;
+  text-color: @fg;
+}
+
+element selected,
+element selected normal,
+element selected urgent,
+element selected active {
+  background-color: @selected-bg;
+  text-color: @selected-fg;
+}
+
+inputbar {
+  spacing: 0;
+  text-color: @fg;
+  padding: 4px;
+  children: [ prompt, textbox-prompt-sep, entry, case-indicator ];
+}
+
+case-indicator,
+entry,
+prompt,
+button {
+  spacing: 0;
+  text-color: @fg;
+}
+
+button.selected {
+  background-color: @selected-bg;
+  text-color: @selected-fg;
+}
+
+textbox-prompt-sep {
+  expand: false;
+  str: ":";
+  text-color: @fg;
+  margin: 0 0.3em 0 0;
+}

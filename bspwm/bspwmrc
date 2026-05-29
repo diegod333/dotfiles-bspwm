@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# hotkeys
+while true; do
+	sxhkd &
+	wait
+done &
+
+# escritorios
+bspc monitor -d I II III
+
+# fondo
+feh --bg-fill ~/Wallpapers/1.png
+
+# barra
+killall polybar
+polybar main &
+
+# compositor liviano (sin blur)
+picom --backend glx --vsync &
+
+# estética mínima
+bspc config border_width 1
+bspc config top_padding 0
+bspc config window_gap 3
+bspc config focused_border_color "#aaaaaa"
+bspc config normal_border_color "#222222"
+
+# focus ventana en puntero
+bspc config focus_follows_pointer true
+bspc config pointer_follows_monitor true
+
+# abrir spotify en workspace III
+bspc rule -a Spotify desktop='^3'

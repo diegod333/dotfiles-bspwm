@@ -1,0 +1,43 @@
+configuration {
+    show-icons: false;
+}
+
+* {
+    bg: transparent;
+    fg: #aaaaaa;
+    selected-bg: #aaaaaa;
+    selected-fg: #1e1e1e;
+}
+
+window {
+    width: 180px;
+    location: center;
+    background-color: transparent;
+    border: 0px;
+    padding: 0px;
+}
+
+mainbox {
+    children: [ listview ];
+}
+
+listview {
+    lines: 5;
+    fixed-height: true;
+    scrollbar: false;
+}
+
+element {
+    padding: 3px 6px;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+}
+
+element-text {
+    text-color: inherit;
+}

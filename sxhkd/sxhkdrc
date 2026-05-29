@@ -1,0 +1,65 @@
+# terminal
+super + Return
+    alacritty
+
+# launcher
+super + d
+    rofi -show drun
+
+# cerrar ventana
+super + q
+    bspc node -c
+
+# mover foco
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# reiniciar bspwm + polybar
+super + shift + r
+    ~/.config/bspwm/reload.sh
+
+# volumen
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# brillo
+XF86MonBrightnessUp
+    brightnessctl set +5%
+
+XF86MonBrightnessDown
+    brightnessctl set 5%-
+
+# cap de pantalla
+Print
+    flameshot gui
+
+# mover ventanas
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+# convertir a ventana flotante
+super + shift + space
+    bspc node -t floating
+
+super + Button1
+    bspc node -g pointer=move
+super + Button3
+    bspc node -g pointer=resize
+
+# cambiar entre workspaces
+super + {1-9}
+    bspc desktop -f '^{1-9}'
+
+# mover ventana al workspace
+super + shift + {1-9}
+    bspc node -d '^{1-9}'
+
+# resize de ventanas con teclado 
+super + alt + {h,j,k,l}
+    bspc node -z {left -10 0,bottom 0 10,top 0 -10,right 10 0}
